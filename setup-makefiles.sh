@@ -16,6 +16,8 @@
 
 VENDOR=malata
 DEVICE=smb_a1002
+#run extract-files first to get dir
+#mkdir -p ../../../vendor/$VENDOR/$DEVICE
 
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__VENDOR__/$VENDOR/g > ../../../vendor/$VENDOR/$DEVICE/$DEVICE-vendor-blobs.mk
 # Copyright (C) 2010 The Android Open Source Project
@@ -148,15 +150,17 @@ PRODUCT_COPY_FILES += \\
     vendor/__VENDOR__/__DEVICE__/proprietary/nvec_keyboard.kcm.bin:system/usr/keychars/nvec_keyboard.kcm.bin \\
     vendor/__VENDOR__/__DEVICE__/proprietary/usb_keyboard_102_en_us.kcm.bin:system/usr/keychars/usb_keyboard_102_en_us.kcm.bin \\
     vendor/__VENDOR__/__DEVICE__/proprietary/tegra-kbc.kcm.bin:system/usr/keychars/tegra-kbc.kcm.bin \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/gpio-keys.kcm.bin:system/usr/keychars/gpio-keys.kcm.bin
-
+    vendor/__VENDOR__/__DEVICE__/proprietary/gpio-keys.kcm.bin:system/usr/keychars/gpio-keys.kcm.bin \\
+    vendor/__VENDOR__/__DEVICE__/proprietary/Logitech_diNovo_Edge.kcm.bin:system/usr/keychars/Logitech_diNovo_Edge.kcm.bin
+    
 # Keylayout files for __DEVICE__
 PRODUCT_COPY_FILES += \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/gpio-keys.kl:system/usr/keychars/gpio-keys.kl \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/nvec_keyboard.kl:system/usr/keychars/nvec_keyboard.kl \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/tegra-kbc.kl:system/usr/keychars/tegra-kbc.kl \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/usb_keyboard_102_en_us.kl:system/usr/keychars/usb_keyboard_102_en_us.kl
-
+    vendor/__VENDOR__/__DEVICE__/proprietary/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \\
+    vendor/__VENDOR__/__DEVICE__/proprietary/nvec_keyboard.kl:system/usr/keylayout/nvec_keyboard.kl \\
+    vendor/__VENDOR__/__DEVICE__/proprietary/tegra-kbc.kl:system/usr/keylayout/tegra-kbc.kl \\
+    vendor/__VENDOR__/__DEVICE__/proprietary/usb_keyboard_102_en_us.kl:system/usr/keylayout/usb_keyboard_102_en_us.kl \\
+    vendor/__VENDOR__/__DEVICE__/proprietary/Logitech_diNovo_Edge.kl:system/usr/keylayout/Logitech_diNovo_Edge.kl
+  
 # bin files for __DEVICE__
 PRODUCT_COPY_FILES += \\
     vendor/__VENDOR__/__DEVICE__/proprietary/nvmm_vc1dec.axf:system/bin/nvmm_vc1dec.axf \\
